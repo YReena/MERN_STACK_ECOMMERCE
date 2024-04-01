@@ -1,6 +1,6 @@
 const app = require("./app");
 const dotenv= require("dotenv");
-const path = require("../backend/config/config.env");
+const path = require("path");
 const cloudinary = require('cloudinary');
 
 
@@ -18,6 +18,13 @@ cloudinary.config({
   api_key: "193181991474174",
   api_secret: "vBwyL4zxAElrn-buiLHTkuY0C7k",
 });
+
+app.use(express.static(path.join(__dirname,"./backend/build")));
+
+app.get("*",(req,res)=>{
+  res.sendFile(path.join(__dirname,"./backend/build"));
+})
+
 
 require('../backend/config/database');
 
