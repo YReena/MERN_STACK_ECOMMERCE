@@ -43,7 +43,6 @@ import {
 
 
   export const userReducer = ( state = { user: {} }, action) => {
-    console.log(state);
     switch (action.type) {
       case REGISTER_USER_REQUEST:
       case LOGIN_REQUEST:
@@ -106,8 +105,6 @@ import {
 
   // update profile
   export const profileReducer = (state = {}, action) => {
-    console.log(action.type);
-    console.log(action.type);
     switch (action.type) {
       case UPDATE_PROFILE_REQUEST:
       case UPDATE_PASSWORD_REQUEST:

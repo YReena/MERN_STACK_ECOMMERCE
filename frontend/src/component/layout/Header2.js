@@ -1,17 +1,15 @@
-import { Mail, Notifications, Pets } from "@mui/icons-material";
+import { Pets } from "@mui/icons-material";
 import {
     AppBar,
     Avatar,
     Badge,
     Box,
     InputBase,
-    Menu,
-    MenuItem,
     styled,
     Toolbar,
-    Typography, Button, Link
+    Typography,Link
 } from "@mui/material";
-import React, { useState, useEffect ,createContext} from "react";
+import React, { useState, useEffect} from "react";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -21,6 +19,7 @@ import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import HomeIcon from '@mui/icons-material/Home';
 import { Link as RouterLink } from 'react-router-dom';
 import { logout } from '../../actions/userAction';
+import PropTypes from "prop-types";
 
 const StyledToolbar = styled(Toolbar)({
     display: "flex",
@@ -43,17 +42,12 @@ const Icons = styled(Box)(({ theme }) => ({
     },
 }));
 
-const SearchContext = createContext();
-
-const Navbar = () => {
-    
+const Header2 = ({onsearch}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { cartItems } = useSelector((state) => state.card);
     const { isAuthenticated, user } = useSelector((state) => state.user);
     const { loading, error, orders } = useSelector((state) => state.myOrders);
-    const {products} = useSelector((state)=>state.products);
-    const[search, setSearch] = useState("");
    
     let ele = [];
     {
@@ -68,11 +62,9 @@ const Navbar = () => {
         ele = cartItems;
       
     }
-    //  const searchProduct  = products && products.filter((ele)=>{
-    //     return search.toLowerCase() === ''
-    //     ? ele
-    //     : ele.name.toLowerCase().includes(search);
-    //  })   
+    const OnSearchHandler =(e)=>{
+        onsearch(e.target.value);
+    }
     useEffect(() => {
        
     }, [navigate, isAuthenticated, user,orders]);
@@ -80,17 +72,16 @@ const Navbar = () => {
     const [avatar, setAvatar] = useState("/Profile.png");
     return (
         <>
-        <SearchContext.Provider value = {search}>
+        
         <AppBar position="sticky" color='default'>
             <StyledToolbar>
                 <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
-                    <img src="https://img.freepik.com/premium-vector/business-logo-template-fashion-branding-design_278222-2436.jpg?size=338&ext=jpg&ga=GA1.1.1395880969.1710115200&semt=ais" style={{ width: "65px", height: "65px" }} />
+                    <img src="https://img.freepik.com/premium-vector/business-logo-template-fashion-branding-design_278222-2436.jpg?size=338&ext=jpg&ga=GA1.1.1395880969.1710115200&semt=ais" style={{ width: "65px", height: "65px" }}  alt="logon"/>
                 </Typography>
                 <Pets sx={{ display: { xs: "block", sm: "none" } }} />
                 <Search component='div'>
                     <form>
-                    <InputBase placeholder="Search....." sx={{width:"100%"}}  value={search}
-                    onChange={(e) => setSearch(e.target.value)}/>
+                    <InputBase placeholder="Search....." sx={{width:"100%"}} onChange={OnSearchHandler}/>
                     </form>
                    
                 </Search>
@@ -158,10 +149,13 @@ const Navbar = () => {
                 </>)}
             </StyledToolbar>
         </AppBar>
-        </SearchContext.Provider>
+        
         </>
     );
 };
 
-export default Navbar;
-export {SearchContext};
+Header2.propTypes = {
+    onsearch: PropTypes.func.isRequired, 
+};
+
+export default Header2;

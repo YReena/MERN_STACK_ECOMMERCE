@@ -35,7 +35,6 @@ const UpdateProfile = () => {
   };
 
   const updateProfileDataChange = (e) => {
-    console.log("chitti");
     const reader = new FileReader();
 
     reader.onload = () => {

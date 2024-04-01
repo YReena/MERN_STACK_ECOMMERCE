@@ -251,7 +251,6 @@ export const productsReducer = (state = { products: [] }, action) => {
         };
   
       case UPDATE_PRODUCT_SUCCESS:
-        console.log(action.payload);
         return {
           ...state,
           loading: false,

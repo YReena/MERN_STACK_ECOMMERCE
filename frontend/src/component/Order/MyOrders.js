@@ -1,7 +1,7 @@
-import React, { useState, useEffect, Fragment } from 'react'
-import { Table, TableHead, TableRow, TableCell, makeStyles, TablePagination, TableSortLabel, TableBody , Link} from '@material-ui/core'
+import React, {useEffect, Fragment } from 'react'
+import { Table, TableHead, TableRow, TableCell, makeStyles,TableBody ,Link} from '@material-ui/core'
 import { useSelector, useDispatch } from "react-redux";
-import styled, { Paper } from "@mui/material";
+import { Paper } from "@mui/material";
 import { clearErrors, myOrders } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
@@ -64,8 +64,6 @@ const useStyles = makeStyles(theme => ({
 const MyOrders = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  let { id } = useParams();
-  console.group(id);
   const alert = useAlert();
 
   const { loading, error, orders } = useSelector((state) => state.myOrders);

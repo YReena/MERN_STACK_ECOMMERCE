@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const app = express();
+const path = require("path");
 app.use(cookieParser());
 
 app.use(bodyParser.json({ limit: '50mb' }));
@@ -25,5 +26,11 @@ app.use("/api/v1", order);
 app.use("/api/v1", payment);
 // Middleware for error
 app.use(errorMiddleware);
+
+app.use(express.static(path.join(__dirname,"./backend/build")));
+
+app.get("*",(req,res)=>{
+  res.sendFile(path.join(__dirname,"./backend/build"));
+})
 
 module.exports = app;

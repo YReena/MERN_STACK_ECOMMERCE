@@ -4,6 +4,7 @@ import Home from './component/home/Home';
 import Footer from './component/layout/Footer';
 import Header from './component/layout/Header';
 import Loader from './component/layout/Loader/Loader'
+import { getProduct } from './actions/productAction';
 import ProductDetails from './component/product/ProductDetails';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Products from './component/product/Products';
@@ -39,10 +40,12 @@ import UsersList from './component/admin/UsersList';
 import UpdateUser from './component/admin/UpdateUser';
 import ProductReview from './component/admin/ProductReviews';
 import Header2 from './component/layout/Header2';
-import SearchProductDetail from './component/product/SearchProductDetail';
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { products, error, isloading } = useSelector(state => state.products);
+  const [searchname, setSerachName]  = useState("");
+  console.log(searchname);
 
   const [stripeApiKey, setStripeApiKey] = useState("");
 
@@ -53,23 +56,25 @@ function App() {
   }
   useEffect(() => {
     store.dispatch(loadUser());
+    store.dispatch(getProduct());
     getStripeApiKey();
   }, []);
   return (
     <div className="App">
-      <Header2/>
+      <Header2 onsearch={setSerachName}/>
       <Routes>
 
         <Route exact path='/account' Component={Profile} />
-        <Route exact path='password/update' Component={UpdatePassword} />
-
-        <Route exact path='/' Component={Home} />
+        <Route exact path='password/update' Component={UpdatePassword}  />
+         <Route
+            path="/"
+            element={( <Home  text={searchname} />)}
+          /> 
         <Route exact path="/me/update" Component={UpdateProfile} />
         <Route exact path="//password/forgot" Component={ForgotPassword} />
         <Route exact path="/password/reset/:token" Component={ResetPassword} />
 
         <Route exact path='/product/:id' Component={ProductDetails} />
-        <Route exact path='/product/:name' Component={SearchProductDetail} />
         <Route exact path='/products' Component={Products} />
         <Route exact path='/search' Component={Search} />
         <Route exact path='/login' Component={LoginSignUp} />
@@ -99,7 +104,6 @@ function App() {
           path="/admin/product"
           isAdmin={true}
           Component={NewProduct} />
-useSatate
         <Route exact
           path="/admin/product/:id"
           isAdmin={true}

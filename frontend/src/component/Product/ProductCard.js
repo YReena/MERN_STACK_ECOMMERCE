@@ -3,12 +3,8 @@ import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import ReactStars from 'react-rating-stars-component';
 import { Link } from 'react-router-dom';
 import usestyles from './styles';
-import { getProductDetails } from '../../actions/productAction';
-import { useDispatch, useSelector } from 'react-redux';
-
 
 const ProductCard = ({ product }) => {
-    console.log(product);
     const classes = usestyles();
     const description="good wear to wear in summersss"
     const options = {

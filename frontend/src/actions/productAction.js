@@ -30,6 +30,7 @@ import {
   DELETE_REVIEW_SUCCESS,
   DELETE_REVIEW_FAIL,
   CLEAR_ERRORS,
+  PRODUCT_DETAILS_BY_NAME_SUCCESS
 } from "../constants/productConstants";
 
 // Get All Products

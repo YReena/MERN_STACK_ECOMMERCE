@@ -20,7 +20,6 @@ sendEmail = async (options)=>{
 
        transporter.sendMail(mailOptions,(err) => {
         if (err){
-        console.log(err)
             res.json('Opps error occured')
         } else{
             res.json('thanks for e-mailing me');

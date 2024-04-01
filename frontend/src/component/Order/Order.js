@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { Table, TableHead, TableRow, TableCell, makeStyles, TablePagination, TableSortLabel, Paper } from '@material-ui/core'
+import { Table, TableHead, TableRow, TableCell, makeStyles, Paper } from '@material-ui/core'
 import { useSelector, useDispatch } from "react-redux";
 import { clearErrors, myOrders } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
-import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";

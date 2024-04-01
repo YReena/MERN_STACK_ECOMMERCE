@@ -34,7 +34,6 @@ const ProductDetails = () => {
     (state) => state.newReview
   );
   const {user} = useSelector((state)=>state.user);
-  console.log(user);
   const options = {
     size: "large",
     value: product.ratings,

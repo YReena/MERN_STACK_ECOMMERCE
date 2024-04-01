@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import "./OrderDetails.css";
 import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/MetaData";
-import { Table, TableHead, TableRow, TableCell, makeStyles, TablePagination, TableSortLabel, TableBody, Link, Typography, Paper, IconButton } from '@material-ui/core';
+import { Table, TableHead, TableRow, TableCell, makeStyles, TableBody, Link, Typography, Paper} from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 import { getOrderDetails, clearErrors } from "../../actions/orderAction";
 import Loader from "../layout/Loader/Loader";
