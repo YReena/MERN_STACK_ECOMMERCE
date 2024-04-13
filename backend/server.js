@@ -19,10 +19,10 @@ cloudinary.config({
   api_secret: "vBwyL4zxAElrn-buiLHTkuY0C7k",
 });
 
-app.use(express.static(path.join(__dirname,"./backend/build")));
+app.use(express.static(path.join(__dirname,"./frontend/build")));
 
 app.get("*",(req,res)=>{
-  res.sendFile(path.join(__dirname,"./backend/build"));
+  res.sendFile(path.join(__dirname,"./frontend/build"));
 })
 
 
