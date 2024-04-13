@@ -40,6 +40,7 @@ import UsersList from './component/admin/UsersList';
 import UpdateUser from './component/admin/UpdateUser';
 import ProductReview from './component/admin/ProductReviews';
 import Header2 from './component/layout/Header2';
+import ProductLists from './component/Product/ProductLists';
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -139,6 +140,11 @@ function App() {
           path="/admin/reviews"
           isAdmin={true}
           Component={ProductReview}
+        />
+        <Route
+          exact
+          path="/products/lists"
+          Component={ProductLists}
         />
 
       </Routes>

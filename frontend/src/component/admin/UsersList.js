@@ -38,7 +38,8 @@ const useStyles = makeStyles(theme => ({
       fontWeight: '300',
       height: '40',
       textAlign:"left",
-      color:"black"
+      color:"black",
+      fontSize:"20px",
     },
     '& tbody tr:hover': {
       backgroundColor: '#fffbf2',

@@ -6,7 +6,6 @@ import usestyles from './styles';
 
 const ProductCard = ({ product }) => {
     const classes = usestyles();
-    const description="good wear to wear in summersss"
     const options = {
         edit: false,
         color: "rgba(20,20,20,0.1)",
@@ -25,14 +24,14 @@ const ProductCard = ({ product }) => {
                     title="green iguana"
                 />
                 <CardContent>
-                    <Typography variant='h6' gutterBottom >{product.name}</Typography>
-                    <Typography variant="h7"gutterBottom>{description}</Typography>
-                    <Box sx={{ display: "flex", marginTop:"8px"}} gutterBottom>
+                    {/* <Typography variant='h6' gutterBottom >{product.name}</Typography> */}
+                    <Typography variant="h7"gutterBottom>{product.description}</Typography>
+                    {/* <Box sx={{ display: "flex", marginTop:"8px"}} gutterBottom>
                         <ReactStars {...options}/>
                         <Typography sx={{paddingLeft:"10px"}}><span>({product.numOfReviews} Reviews)</span></Typography>
-                    </Box>
+                    </Box> */}
                     
-                    <Typography variant='h6'><b>Rs</b><span> {product.price}</span></Typography>
+                    <Typography variant='h6' sx={{textAlign:"center"}}><b>Rs</b><span> {product.price}</span></Typography>
                 </CardContent>
             </Card>
         </Link>

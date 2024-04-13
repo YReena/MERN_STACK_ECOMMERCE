@@ -4,6 +4,7 @@ import { getProduct,clearErrors  } from '../../actions/productAction';
 import Loader from '../layout/Loader/Loader';
 import ProductCard from '../Product/ProductCard';
 import { useAlert } from "react-alert";
+import './Products.css';
 
 
 const Products = () => {

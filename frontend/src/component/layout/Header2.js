@@ -80,45 +80,42 @@ const Header2 = ({onsearch}) => {
                 </Typography>
                 <Pets sx={{ display: { xs: "block", sm: "none" } }} />
                 <Search component='div'>
-                    <form>
-                    <InputBase placeholder="Search....." sx={{width:"100%"}} onChange={OnSearchHandler}/>
-                    </form>
-                   
+                    <InputBase placeholder="Search....." sx={{width:"100%", fontSize:"18px"}} onChange={OnSearchHandler}/>   
                 </Search>
 
                 {isAuthenticated ? (<>
                     <Icons>
                         {user && user.role === "admin" ? (<>
-                            <Link variant="inherit" underline="none" component={RouterLink} sx={{ display: "flex" }} to='/admin/dashboard'>
-                                    <SpaceDashboardIcon />
-                                    <Typography sx={{ paddingLeft: 0.4 }}><b>Dashboard</b></Typography>
+                            <Link variant="inherit" underline="none" component={RouterLink} sx={{ display: "flex" , fontSize:"20px"}} to='/admin/dashboard'>
+                                    <SpaceDashboardIcon sx={{height:"24px" ,width:"24px"}}/>
+                                    <Typography sx={{ paddingLeft: 0.4 , fontSize:"18px"}}><b>Dashboard</b></Typography>
                             </Link>
                         </>) : (<></>)}
 
                         <Link variant="inherit" underline="none" component={RouterLink} sx={{ display: "flex" }} to='/'>
-                                <HomeIcon />
-                                <Typography sx={{ paddingLeft: 0.4 }}><b>Home</b></Typography>
+                                <HomeIcon sx={{height:"24px" ,width:"24px"}}/>
+                                <Typography sx={{ paddingLeft: 0.4 , fontSize:"18px"}}><b>Home</b></Typography>
 
                         </Link>
                         <Link variant="inherit" underline="none" component={RouterLink} sx={{ display: "flex" }} to='/cart'>
                             <Badge badgeContent={ele.length} color="error">
-                                <ShoppingCartIcon />
-                                <Typography sx={{ paddingLeft: 0.4 }}><b>Cart</b></Typography>
+                                <ShoppingCartIcon sx={{height:"24px" ,width:"24px"}}/>
+                                <Typography sx={{ paddingLeft: 0.4 , fontSize:"18px"}}><b>Cart</b></Typography>
                             </Badge>
 
                         </Link>
                         <Link variant="inherit" underline="none" component={RouterLink} sx={{ display: "flex" }} to='/orders'>
                             <Badge badgeContent={orders && orders.length} color="error">
-                                <ShoppingCartIcon />
-                                <Typography sx={{ paddingLeft: 0.4 }}><b>MyOrders</b></Typography>
+                                <ShoppingCartIcon sx={{height:"24px" ,width:"24px"}}/>
+                                <Typography sx={{ paddingLeft: 0.4 , fontSize:"18px"}}><b>MyOrders</b></Typography>
                             </Badge>
 
                         </Link>
                         <Link variant="inherit" underline="none" component={RouterLink} sx={{ display: "flex" }} to='/account'>
                             <Avatar
-                                src={user ?user.avtar.url: avatar} alt="Avatar Preview"
+                                src={user ?user.avtar.url: avatar} alt="Avatar Preview" sx={{height:"24px" ,width:"24px"}}
                             />
-                            <Typography sx={{ paddingLeft: 0.4, paddingTop:0.7 }}><b>Profile</b></Typography>
+                            <Typography sx={{ paddingLeft: 0.4 , fontSize:"18px"}}><b>Profile</b></Typography>
                         </Link>
 
                         <Link variant="inherit" underline="none" component="button" sx={{ display: "flex" }} onClick={() => {
@@ -126,23 +123,23 @@ const Header2 = ({onsearch}) => {
                             navigate("/");
 
                         }}>
-                            <ExitToAppIcon />
-                            <Typography sx={{}}><b>Logout</b></Typography>
+                            <ExitToAppIcon sx={{height:"24px" ,width:"24px"}}/>
+                            <Typography sx={{ paddingLeft: 0.4 , fontSize:"18px"}}><b>Logout</b></Typography>
                         </Link>
                     </Icons>
 
                 </>) : (<>
                     <Icons>
 
-                        <Link variant="inherit" underline="none" component={RouterLink} sx={{ display: "flex" }} to='/cart'>
+                        <Link variant="inherit" underline="none" component={RouterLink} sx={{ display: "flex" , fontSize:"20px"}} to='/cart'>
                             <Badge badgeContent={ele.length} color="error">
-                                <ShoppingCartIcon />
+                                <ShoppingCartIcon sx={{height:"24px" ,width:"24px"}}/>
                             </Badge>
-                            <Typography sx={{ paddingLeft: 0.4 }}><b>Cart</b></Typography>
+                            <Typography sx={{ paddingLeft: 0.4 , fontSize:"18px"}}><b>Cart</b></Typography>
                         </Link>
                         <Link variant="inherit" underline="none" component={RouterLink} sx={{ display: "flex" }} to='/login'>
-                            <AccountCircle/>
-                            <Typography sx={{ paddingLeft: 0.4 }}><b>Login</b></Typography>
+                            <AccountCircle sx={{height:"24px" ,width:"24px"}}/>
+                            <Typography sx={{ paddingLeft: 0.4 , fontSize:"18px"}}><b>Login</b></Typography>
                         </Link>
                     </Icons>
 

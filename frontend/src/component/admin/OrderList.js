@@ -16,7 +16,6 @@ import {
 import { DELETE_ORDER_RESET } from "../../constants/orderConstant";
 import { useNavigate } from "react-router-dom";
 
-
 const useStyles = makeStyles(theme => ({
   heading: {
     display: "flex",
@@ -60,7 +59,8 @@ const useStyles = makeStyles(theme => ({
   },
   paperpadding :{
     margin:"1vmax"
-  }
+  },
+  
 }));
 
 const OrderList = () => {

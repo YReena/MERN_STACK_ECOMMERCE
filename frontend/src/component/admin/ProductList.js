@@ -33,18 +33,21 @@ const useStyles = makeStyles(theme => ({
       fontWeight: '600',
       color: "#0f589f",
       backgroundColor:"rgb(237 237 237)",
-      textAlign:"left"
+      textAlign:"left",
+      fontSize: '1vmax'
 
     },
     '& tbody td': {
       fontWeight: '400',
-      textAlign:"left"
+      textAlign:"left",
+      fontSize: '0.9vmax'
     },
     '& tbody tr td': {
       fontWeight: '300',
       height: '40',
       textAlign:"left",
-      color:"black"
+      color:"black",
+      fontSize: '0.9vmax'
     },
     '& tbody tr:hover': {
       backgroundColor: '#fffbf2',
@@ -62,6 +65,7 @@ const useStyles = makeStyles(theme => ({
     margin:"1vmax"
   }
 }));
+
 
 const ProductList = () => {
   const classes = useStyles();
@@ -126,7 +130,7 @@ const ProductList = () => {
                 {products && products.map((product, idx) => (
                   <TableRow key={idx}>
                     <TableCell align="right">{product._id}</TableCell>
-                    <TableCell align="right">{product.name}</TableCell>
+                    <TableCell align="right" sx={{fontSize:100}} >{product.name}</TableCell>
                     <TableCell align="right">{product.price}</TableCell>
                     <TableCell align="right">{product.stock}</TableCell>
                     <TableCell align="right">

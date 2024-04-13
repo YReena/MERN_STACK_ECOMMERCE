@@ -6,15 +6,16 @@ import { MdOutlineMailLock } from "react-icons/md";
 import { HiOutlineLockOpen } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { FaRegCircleUser } from "react-icons/fa6";
-import { login, clearErrors,register} from "../../actions/userAction";
+import { RiAdminFill } from "react-icons/ri";
+import { login, clearErrors, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
-import { useNavigate , useLocation} from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LoginSignUp = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
   const navigate = useNavigate();
-  const { error, loading, isAuthenticated , user} = useSelector(
+  const { error, loading, isAuthenticated, user } = useSelector(
     (state) => state.user
   );
 
@@ -30,9 +31,11 @@ const LoginSignUp = () => {
     name: "",
     email: "",
     password: "",
+    role:""
   });
 
-  const { name, email, password } = userInfo;
+  const userRole = ["admin", "user"];
+  const { name, email, password , role} = userInfo;
 
   const [avtar, setAvtar] = useState("/Profile.png");
   const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
@@ -84,7 +87,7 @@ const LoginSignUp = () => {
     if (isAuthenticated) {
       navigate(`/${redirect}`);
     }
-  }, [dispatch, error, alert,isAuthenticated, navigate, redirect,loggedIn,user]);
+  }, [dispatch, error, alert, isAuthenticated, navigate, redirect, loggedIn, user]);
 
   const switchTabs = (e, tab) => {
     if (tab === "login") {
@@ -178,6 +181,17 @@ const LoginSignUp = () => {
                     value={password}
                     onChange={registerDataChange}
                   />
+                </div>
+                <div className="signUpPassword">
+                  <RiAdminFill />
+                  <select onChange={registerDataChange} value={role} name="role">
+                    <option value="">Choose Role</option>
+                    {userRole.map((r) => (
+                      <option key={r} value={4}>
+                        {r}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div id="registerImage">

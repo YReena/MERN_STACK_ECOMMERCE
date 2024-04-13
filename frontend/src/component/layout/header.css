@@ -28,7 +28,7 @@
     color: rgba(0, 0, 0, 0.637);
     outline: none;
     border-radius: 0%;
-    font-size: 1.1vmax;
+    font-size: 2vmax;
     box-sizing: border-box;
     height: 5%;
   }
@@ -44,7 +44,7 @@
     color: rgba(0, 0, 0, 0.637);
     outline: none;
     border-radius: 0%;
-    font-size: 1.1vmax;
+    font-size: 2vmax;
     box-sizing: border-box;
     height: 5%;
   }
@@ -61,7 +61,7 @@
     position: absolute;
     right: 4.8vmax;
     top: 0.5vmax;
-    font-size: 1vmax;
+    font-size: 2vmax;
   }
   #cart-image > svg{
     width: 1.8vmax;

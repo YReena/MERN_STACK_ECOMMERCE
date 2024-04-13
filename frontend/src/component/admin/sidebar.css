@@ -19,9 +19,9 @@
   .sidebar a {
     text-decoration: none;
     color: #1976d2;;
-    font: 200 1rem "Roboto";
+    font: 200 1vmax "Roboto";
     font-weight: bolder;
-    padding: 2rem;
+    padding: 2vmax;
     transition: all 0.5s;
   }
   .sidebar a:hover {
@@ -32,6 +32,8 @@
   .sidebar a > P {
     display: flex;
     align-items: center;
+    
+
   }
   .sidebar a > p > svg {
     margin-right: 0.5rem;

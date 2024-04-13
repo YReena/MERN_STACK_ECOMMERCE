@@ -4,4 +4,4 @@
 /node_modules
 /.pnp
 .pnp.js
-/config/config.env
+/backend/config/config.env

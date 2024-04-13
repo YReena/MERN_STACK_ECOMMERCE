@@ -75,6 +75,18 @@
     border-radius: 4px;
     font: 300 0.9vmax cursive;
     outline: none;
+    margin-bottom: 10px;
+  }
+  .signUpForm > div > select {
+    padding: 1vmax 4vmax;
+    padding-right: 1vmax;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.267);
+    border-radius: 4px;
+    font: 300 0.9vmax cursive;
+    outline: none;
+    margin-bottom: 10px;
   }
   
   .loginForm > div > svg,
@@ -126,6 +138,7 @@
   
   .loginBtn,
   .signUpBtn {
+    margin-top: 1vmax;
     border: none;
     background-color: #0f589f;
     color: white;

@@ -27,10 +27,6 @@ app.use("/api/v1", payment);
 // Middleware for error
 app.use(errorMiddleware);
 
-app.use(express.static(path.join(__dirname,"./backend/build")));
 
-app.get("*",(req,res)=>{
-  res.sendFile(path.join(__dirname,"./backend/build"));
-})
 
 module.exports = app;
